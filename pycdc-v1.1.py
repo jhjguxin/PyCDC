@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#pycdc-v1.1.py
 import sys,cmd
 from cdctools import *
 class PyCDC(cmd.Cmd):
