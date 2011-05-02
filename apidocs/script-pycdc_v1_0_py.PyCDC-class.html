@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>script-pycdc_v1_0_py.PyCDC</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="script-pycdc_v1_0_py-module.html">Script&nbsp;pycdc_v1_0_py</a> ::
+        Class&nbsp;PyCDC
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="script-pycdc_v1_0_py.PyCDC-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PyCDC</h1><p class="nomargin-top"><span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_script_p" name="uml_class_diagram_for_script_p">
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.prompt" alt="" coords="17,31,240,49"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.identchars" alt="" coords="17,49,240,68"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.ruler" alt="" coords="17,68,240,87"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.lastcmd" alt="" coords="17,87,240,105"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.intro" alt="" coords="17,105,240,124"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.doc_leader" alt="" coords="17,124,240,143"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.doc_header" alt="" coords="17,143,240,161"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.misc_header" alt="" coords="17,161,240,180"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.undoc_header" alt="" coords="17,180,240,199"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.nohelp" alt="" coords="17,199,240,217"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.use_rawinput" alt="" coords="17,217,240,236"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Repeatedly issue a prompt, accept input, parse an initial prefix off the &#160;received input, and dispatch to action methods, passing them the remainder &#160;of the line as argument." alt="" coords="17,239,240,257"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Hook method executed just before the command line is interpreted, but after the input prompt is generated and issued." alt="" coords="17,257,240,276"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Hook method executed just after a command dispatch is finished." alt="" coords="17,276,240,295"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Hook method executed once when the cmdloop() method is called." alt="" coords="17,295,240,313"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Hook method executed once when the cmdloop() method is about to return." alt="" coords="17,313,240,332"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Parse the line into a command name and a string containing the arguments." alt="" coords="17,332,240,351"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Interpret the argument as though it had been typed in response to the &#160;prompt." alt="" coords="17,351,240,369"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Called when an empty line is entered in response to the prompt." alt="" coords="17,369,240,388"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Called on an input line when the command prefix is not recognized." alt="" coords="17,388,240,407"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Method called to complete an input line when no command&#45;specific &#160;complete_*() method is available." alt="" coords="17,407,240,425"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.completenames" alt="" coords="17,425,240,444"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Return the next possible completion for &#39;text&#39;." alt="" coords="17,444,240,463"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="cmd.Cmd.get_names" alt="" coords="17,463,240,481"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Display a list of strings as a compact set of columns." alt="" coords="17,500,240,519"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="A simple framework for writing line&#45;oriented command interpreters." alt="" coords="5,6,251,525"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#__init__" title="Instantiate a line&#45;oriented interpreter framework." alt="" coords="59,577,200,596"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#help_EOF" title="script&#45;pycdc_v1_0_py.PyCDC.help_EOF" alt="" coords="59,596,200,615"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#do_EOF" title="script&#45;pycdc_v1_0_py.PyCDC.do_EOF" alt="" coords="59,615,200,633"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#help_walk" title="script&#45;pycdc_v1_0_py.PyCDC.help_walk" alt="" coords="59,633,200,652"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#do_walk" title="script&#45;pycdc_v1_0_py.PyCDC.do_walk" alt="" coords="59,652,200,671"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#help_dir" title="script&#45;pycdc_v1_0_py.PyCDC.help_dir" alt="" coords="59,671,200,689"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#do_dir" title="script&#45;pycdc_v1_0_py.PyCDC.do_dir" alt="" coords="59,689,200,708"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#help_find" title="script&#45;pycdc_v1_0_py.PyCDC.help_find" alt="" coords="59,708,200,727"/>
+<area shape="rect" id="node0" href="script-pycdc_v1_0_py.PyCDC-class.html#do_find" title="script&#45;pycdc_v1_0_py.PyCDC.do_find" alt="" coords="59,727,200,745"/>
+<area shape="rect" id="node2" href="script-pycdc_v1_0_py.PyCDC-class.html" title="script&#45;pycdc_v1_0_py.PyCDC" alt="" coords="47,545,212,751"/>
+</map>
+  <img src="uml_class_diagram_for_script_p.gif" alt='' usemap="#uml_class_diagram_for_script_p" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="script-pycdc_v1_0_py.PyCDC-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Instantiate a line-oriented interpreter framework.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="help_EOF"></a><span class="summary-sig-name">help_EOF</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.help_EOF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_EOF"></a><span class="summary-sig-name">do_EOF</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">line</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.do_EOF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="help_walk"></a><span class="summary-sig-name">help_walk</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.help_walk">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_walk"></a><span class="summary-sig-name">do_walk</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.do_walk">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="help_dir"></a><span class="summary-sig-name">help_dir</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.help_dir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_dir"></a><span class="summary-sig-name">do_dir</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pathname</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.do_dir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="help_find"></a><span class="summary-sig-name">help_find</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.help_find">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="do_find"></a><span class="summary-sig-name">do_find</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">keyword</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.do_find">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>cmd.Cmd</code></b>:
+      <code>cmdloop</code>,
+      <code>columnize</code>,
+      <code>complete</code>,
+      <code>complete_help</code>,
+      <code>completedefault</code>,
+      <code>completenames</code>,
+      <code>default</code>,
+      <code>do_help</code>,
+      <code>emptyline</code>,
+      <code>get_names</code>,
+      <code>onecmd</code>,
+      <code>parseline</code>,
+      <code>postcmd</code>,
+      <code>postloop</code>,
+      <code>precmd</code>,
+      <code>preloop</code>,
+      <code>print_topics</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>cmd.Cmd</code></b>:
+      <code>doc_header</code>,
+      <code>doc_leader</code>,
+      <code>identchars</code>,
+      <code>intro</code>,
+      <code>lastcmd</code>,
+      <code>misc_header</code>,
+      <code>nohelp</code>,
+      <code>prompt</code>,
+      <code>ruler</code>,
+      <code>undoc_header</code>,
+      <code>use_rawinput</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="script-pycdc_v1_0_py-pysrc.html#PyCDC.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Instantiate a line-oriented interpreter framework.</p>
+  <p>The optional argument 'completekey' is the readline name of a 
+  completion key; it defaults to the Tab key. If completekey is not None 
+  and the readline module is available, command completion is done 
+  automatically. The optional arguments stdin and stdout specify alternate 
+  input and output file objects; if not specified, sys.stdin and sys.stdout
+  are used.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        cmd.Cmd.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon May  2 19:42:44 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
