@@ -1,10 +1,66 @@
 # -*- coding:utf-8 -*-
 # cdctools.py
 import os
+import time
 import chardet
 import pdb
 from ConfigParser import RawConfigParser as rcp
-#from smartcode import * 记住是导入到 当前目录不是cdctools
+from threading import Thread  # 导入线程支持模块
+#多线程初始化
+class grepIt(Thread):
+  "多线程初始化"
+  def __init__ (self,cdcfile,keyword):
+    Thread.__init__(self)
+    self.cdcf = cdcfile
+    self.keyw = keyword
+    self.report = ""
+  def run(self):
+    if ".ini" in self.cdcf:
+      self.report = markIni(self.cdcf,self.keyw)
+
+def markIni(cdcfile,keyword):
+  '''配置文件模式匹配函式:
+  '''
+  report = ""
+  keyw = keyword
+  cfg = rcp()
+  cfg.read(cdcfile)
+  nodelist = cfg.sections()
+  nodelist.remove("Comment")
+  nodelist.remove("Info")
+  for node in nodelist:
+    if keyw in node:
+      print node
+      report += "\n %s"%node # error as "\n",node|str(node)...
+      continue
+    else:
+      for item in cfg.items(node):
+        if keyw in item[0]:
+          report += "\n %s/%s "%(node,item)
+  return report
+
+def grpSearch(cdcpath,keyword):
+  '''光盘信息多线程群体搜索主函式
+  @note: 直接利用 pickle 函式搜索打开所有符合要求的文件,读取每一行,如果有指定关键词在行内就打印输出到屏幕......
+  @param cdcpath: 搜索路径(包含路径,绝对、相对都可以)
+  '''
+  print "*"*70
+  print grpSearch.__name__
+  print grpSearch.__doc__
+
+  begin = time.time()
+  filelist = os.listdir(cdcpath) # 搜索目录中的文件
+  searchlist = [] # 记录发起的搜索编程
+  for cdcf in filelist:
+    pathcdcf = "%s/%s"%(cdcpath,cdcf)
+    current = grepIt(pathcdcf,keyword) # 初始化线程对象
+    searchlist.append(current) # 追加记录线程队列
+    current.start()  # 发动线程处理
+  for searcher in searchlist:
+    searcher.join()
+    print "Search from ",searcher.cdcf," out ",searcher.report
+  print "usage %s s"%(time.time()-begin)
+
 
 #扫描光盘信息记录为文件
 def cdWalker(cdrom,cdcfile):
@@ -14,6 +70,9 @@ def cdWalker(cdrom,cdcfile):
   @return: 无,直接输出成*.cdc 文件
   @attention: 从 v0.7 开始不使用此扫描函式,使用 iniCDinfo()
   '''
+  print "*"*70
+  print cdWalker.__name__
+  print cdWalker.__doc__
 
   export=''
   for root,dirs,files in os.walk(cdrom):
@@ -23,17 +82,6 @@ def cdWalker(cdrom,cdcfile):
 
   open(cdcfile,'w').write(export)
 
-#搜索打开所有符合要求的文件,读取每一行,如果有指定关键词在行内就打印输出到屏幕......
-def cdcGrep(cdcpath,keyword):
-  "#搜索打开所有符合要求的文件,读取每一行,如果有指定关键词在行内就打印输出到屏幕......"
-  for root,dirs,files in os.walk(cdcpath):  #找出根目录下的所有目录需要三个参数才行哦
-    filelist = os.listdir('%s'%(root,)) # 搜索目录中的文件
-    for cdc in filelist:        # 循环文件列表
-      if ".cdc" in cdc:         # 过滤可能的其它文件,只关注.cdc
-        cdcfile = open(cdcpath+cdc)         # 拼合文件路径,并打开文件
-        for line in cdcfile.readlines():    # 读取文件每一行,并循环
-          if keyword in line:      # 判定是否有关键词在行中
-            print line               # 打印输出
 
 def formatCDinfo(root,dirs,files):
   '''光盘信息记录格式化函式
@@ -43,6 +91,9 @@ def formatCDinfo(root,dirs,files):
   @param files: 当前根中的所有文件
   @return: 字串,组织好的当前目录信息
   '''
+  print "*"*70
+  print formatCDinfo.__name__
+  print formatCDinfo.__doc__
 
   export = "\n"+root+"\n"
   for d in dirs:
@@ -55,6 +106,10 @@ def formatCDinfo(root,dirs,files):
 def _smartcode(ustring):
   """smart recove stream into UTF-8
   """
+  print "*"*50
+  print _smartcode.__name__
+  print _smartcode.__doc__
+
   codename = chardet.detect(ustring)["encoding"]
   print codename
 
@@ -73,6 +128,11 @@ def iniCDinfo(cdrom,cdcfile):
   @param cdcfile: 输出的光盘信息记录文件(包含路径,绝对、相对都可以)
   @return: 无,直接输出成组织好的类.ini 的*.cdc 文件
   '''
+
+  print "*"*70
+  print iniCDinfo.__name__
+  print iniCDinfo.__doc__
+
   walker={}
   for root,dirs,files in os.walk(cdrom):
     walker[root]=(dirs,files)  # 这里是个需要理解的地方
@@ -92,11 +152,46 @@ def iniCDinfo(cdrom,cdcfile):
       cfg.set(p,f,os.stat("%s/%s"%(p,f)).st_size)
   cfg.write(open(cdcfile,'w'))
 
+#搜索打开所有符合要求的文件,读取每一行,如果有指定关键词在行内就打印输出到屏幕......
+def cdcGrep(cdcpath,keyword):
+  '''光盘信息搜索主函式
+  @note: 直接利用 pickle 函式搜索打开所有符合要求的文件,读取每一行,如果有指定关键词在行内就打印输出到屏幕......
+  @param cdcpath: 搜索路径(包含路径,绝对、相对都可以)
+  @return: searched.dump
+  @attention: 从 v0.8 开始不使用此扫描函式,使用 grpSearch()
+  '''
+  print "*"*70
+  print cdcGrep.__name__
+  print cdcGrep.__doc__
 
+  export = ""
+  filelist = os.listdir(cdcpath) # 搜索目录中的文件
+  for cdc in filelist: # 循环文件列表
+    if ".cdc" in cdc:
+      cdcfile = open(cdcpath+cdc)# 拼合文件路径,并打开文件
+      export += cdc
+      for line in cdcfile.readlines():# 读取文件每一行,并循环
+        if keyword in line:# 判定是否有关键词在行中
+          #print line
+          export += line # 打印输出
+  print export
 
 
 
 if __name__=="__main__":    #this way the module can be
+  '''cdctools 自测响应处理
+  '''
+  print '''cdctools 自测响应处理
+  '''
+  CDCPATH = "/home/jhjguxin/Desktop/code/PyCDC/cdc/"
+
   CDROM=os.getcwd()
-  cdWalker(CDROM,'cdctools.cdc')#只有单文件执行才执行这部分
-  iniCDinfo(CDROM,'try.ini')
+
+#  cdWalker(CDROM,CDCPATH+'cdctools.cdc')#v0.7 开始不使用此扫描函式,使用 iniCDinfo()
+  iniCDinfo(CDROM,CDCPATH+'try.ini')
+
+  ## 需要根据实际情况指向真实的目录
+
+  grpSearch(CDCPATH,"cdc")
+
+
